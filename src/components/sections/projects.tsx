@@ -11,7 +11,7 @@ import { PROJECTS } from "@/lib/constants";
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="relative py-24 md:py-32">
+    <section id="projects" className="relative py-16 md:py-20">
       <div className="dot-pattern pointer-events-none absolute inset-0 opacity-40" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

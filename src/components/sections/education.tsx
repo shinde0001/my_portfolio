@@ -7,7 +7,7 @@ import { EDUCATION } from "@/lib/constants";
 
 export function EducationSection() {
   return (
-    <section id="education" className="relative py-24 md:py-32">
+    <section id="education" className="relative py-16 md:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           label="Education"

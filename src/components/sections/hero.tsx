@@ -40,7 +40,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="grain-overlay relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="grain-overlay relative flex min-h-[85vh] items-center justify-center overflow-hidden pt-20"
     >
       {/* Background gradient orbs */}
       <div className="pointer-events-none absolute inset-0">

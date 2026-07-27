@@ -7,7 +7,7 @@ import { SKILL_CATEGORIES } from "@/lib/constants";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="relative py-24 md:py-32">
+    <section id="skills" className="relative py-16 md:py-20">
       {/* Subtle dot pattern background */}
       <div className="dot-pattern pointer-events-none absolute inset-0 opacity-50" />
 
