@@ -163,7 +163,7 @@ export const PROJECTS: Project[] = [
     tech: ["Python", "LangChain", "Vector Database"],
   },
   {
-    title: "Raspberry Pi Slotting Machine with Robotic Arm",
+    title: "Slotting Machine with Robotic Arm controlled by Raspberry Pi",
     description:
       "Designed and developed a robotic arm-based slotting machine controlled by Raspberry Pi, automating pick-and-place operations using embedded programming.",
     tech: ["Raspberry Pi", "Python", "Embedded Systems"],
