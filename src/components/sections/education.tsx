@@ -36,7 +36,7 @@ export function EducationSection() {
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex flex-row sm:flex-col flex-wrap sm:flex-nowrap items-center sm:items-end gap-2 sm:gap-3 shrink-0 mt-2 sm:mt-0">
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
                         <Calendar className="h-3 w-3" />
                         {edu.period}
