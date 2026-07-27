@@ -64,21 +64,7 @@ export function AboutSection() {
               </div>
             ))}
 
-            {/* Highlight stats */}
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              {[
-                { number: "20%", label: "Efficiency Gain" },
-                { number: "25%", label: "Programming Boost" },
-              ].map(({ number, label }) => (
-                <div
-                  key={label}
-                  className="glass-card rounded-xl p-4 text-center transition-all hover:shadow-lg"
-                >
-                  <p className="text-2xl font-bold gradient-text">{number}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">{label}</p>
-                </div>
-              ))}
-            </div>
+
 
             {/* Tech tags */}
             <div className="flex flex-wrap gap-2 pt-2">
