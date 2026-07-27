@@ -187,6 +187,7 @@ export const EDUCATION: Education[] = [
     institution: "Motichand Lengade Bhartesh Polytechnic",
     degree: "Diploma in Mechatronics",
     period: "2017 – 2020",
+    grade: "72%",
   },
 ];
 
