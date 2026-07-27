@@ -6,28 +6,37 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
 
+const PARTICLES = [
+  { width: 8, height: 8, left: "15%", top: "20%", duration: 5, delay: 0.5 },
+  { width: 12, height: 12, left: "75%", top: "15%", duration: 7, delay: 1.2 },
+  { width: 6, height: 6, left: "30%", top: "65%", duration: 6, delay: 0 },
+  { width: 10, height: 10, left: "80%", top: "75%", duration: 8, delay: 2 },
+  { width: 5, height: 5, left: "50%", top: "40%", duration: 5, delay: 0.8 },
+  { width: 9, height: 9, left: "20%", top: "80%", duration: 6.5, delay: 1.5 },
+];
+
 /** Animated floating particles for visual depth. */
 function FloatingParticles() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      {Array.from({ length: 6 }).map((_, i) => (
+      {PARTICLES.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full bg-primary/10"
           style={{
-            width: 4 + Math.random() * 8,
-            height: 4 + Math.random() * 8,
-            left: `${10 + Math.random() * 80}%`,
-            top: `${10 + Math.random() * 80}%`,
+            width: particle.width,
+            height: particle.height,
+            left: particle.left,
+            top: particle.top,
           }}
           animate={{
             y: [0, -20, 0],
             opacity: [0.3, 0.7, 0.3],
           }}
           transition={{
-            duration: 4 + Math.random() * 4,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 3,
+            delay: particle.delay,
             ease: "easeInOut",
           }}
         />

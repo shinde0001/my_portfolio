@@ -27,8 +27,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setTheme(getInitialTheme());
-    setMounted(true);
+    const handle = requestAnimationFrame(() => {
+      setTheme(getInitialTheme());
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(handle);
   }, []);
 
   useEffect(() => {
