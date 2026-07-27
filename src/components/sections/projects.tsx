@@ -61,6 +61,17 @@ export function ProjectsSection() {
                           <Play className="h-3.5 w-3.5" />
                         </a>
                       )}
+                      {project.video2 && (
+                        <a
+                          href={project.video2}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Demo 2: ${project.title}`}
+                          className="flex h-8 w-8 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-all hover:border-accent/50 hover:text-accent hover:shadow-md"
+                        >
+                          <Play className="h-3.5 w-3.5" />
+                        </a>
+                      )}
                     </div>
                   </div>
 
@@ -86,8 +97,8 @@ export function ProjectsSection() {
                   </div>
 
                   {/* CTA row */}
-                  {(project.github || project.video) && (
-                    <div className="mt-5 flex gap-3 border-t border-border/30 pt-5">
+                  {(project.github || project.video || project.video2) && (
+                    <div className="mt-5 flex flex-wrap gap-3 border-t border-border/30 pt-5">
                       {project.github && (
                         <Button asChild variant="outline" size="sm" className="flex-1 gap-2 rounded-full text-xs">
                           <a href={project.github} target="_blank" rel="noopener noreferrer">
@@ -100,7 +111,15 @@ export function ProjectsSection() {
                         <Button asChild size="sm" className="flex-1 gap-2 rounded-full text-xs">
                           <a href={project.video} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="h-3.5 w-3.5" />
-                            Live Demo
+                            {project.video2 ? "Demo 1" : "Live Demo"}
+                          </a>
+                        </Button>
+                      )}
+                      {project.video2 && (
+                        <Button asChild size="sm" className="flex-1 gap-2 rounded-full text-xs">
+                          <a href={project.video2} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-3.5 w-3.5" />
+                            Demo 2
                           </a>
                         </Button>
                       )}

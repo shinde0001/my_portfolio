@@ -134,6 +134,7 @@ export interface Project {
   tech: string[];
   github?: string;
   video?: string;
+  video2?: string;
   image?: string;
 }
 
@@ -145,6 +146,7 @@ export const PROJECTS: Project[] = [
     tech: ["Python", "ROS 2", "PX4", "MAVSDK", "LLM APIs", "Llama"],
     github: "https://github.com/shinde0001/Drone-Mission-Pipeline",
     video: "https://drive.google.com/file/d/1RmZlvP2GteiClFOZbtAo6owTs2M_YEa2/view",
+    video2: "https://drive.google.com/file/d/1dkg8GLsTuL-XZLLjxr4Lvra4Qp_8j5S1/view",
   },
   {
     title: "Autonomous Vision-Based Drone Follower",
