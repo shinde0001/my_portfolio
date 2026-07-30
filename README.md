@@ -119,4 +119,4 @@ MIT
 
 ---
 
-Built with ❤️ by Parth Shinde
+Built with by Parth Shinde
