@@ -161,6 +161,21 @@ export const PROJECTS: Project[] = [
     description:
       "Built an AI chatbot capable of retrieving domain-specific information using Retrieval-Augmented Generation with LLM-based responses and document retrieval.",
     tech: ["Python", "LangChain", "Vector Database"],
+    github: "https://github.com/shinde0001/Parth.AI-RAG-System",
+  },
+  {
+    title: "📈 AI Stock Signal Intelligence System — Indian Markets (NSE)",
+    description:
+      "Developed a local-first AI stock prediction and intelligence system for Indian markets. Features include an Investment Advisor, Portfolio Simulator, and real-time market prediction architecture.",
+    tech: ["Python", "Machine Learning", "Streamlit", "Data Analysis"],
+    github: "https://github.com/shinde0001/AI-Stock-Signal-Intelligence-Machine-learning-model",
+  },
+  {
+    title: "AI-Powered Website Security",
+    description:
+      "Engineered an enterprise-grade reconnaissance engine and security dashboard. Features deep entity investigation, OSINT capabilities, and visual knowledge graphs for digital footprint assessment.",
+    tech: ["Python", "Cybersecurity", "OSINT", "AI"],
+    github: "https://github.com/shinde0001/AI-Powered-Website-Security",
   },
   {
     title: "Slotting Machine with Robotic Arm controlled by Raspberry Pi",
