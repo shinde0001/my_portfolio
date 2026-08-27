@@ -140,6 +140,20 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+    title: "Humanoid-Robot-Training",
+    description:
+      "Developed a professional-grade, deterministically engineered software stack to control a 19-DOF bipedal humanoid robot. Features a Pure Python Hardware Abstraction Layer (HAL) built around MuJoCo for seamless sim-to-real transfer.",
+    tech: ["Python", "MuJoCo", "FastAPI", "OpenCV"],
+    github: "https://github.com/shinde0001/Humanoid-Robot-Training",
+  },
+  {
+    title: "Detection Quality Adapter (DQA)",
+    description:
+      "Engineered a high-performance, real-time post-processing middleware pipeline to sanitize and refine raw object detection results. Applies geometric, association, and temporal filtering to ensure stable tracking.",
+    tech: ["Python", "Computer Vision", "Real-Time Processing"],
+    github: "https://github.com/shinde0001/Detection-Quality-Adapter-DQA-",
+  },
+  {
     title: "Drone Pipeline & Multi-Agent Mission Generation",
     description:
       "Developed a multi-drone mission planning system for autonomous task execution with swarm coordination strategies for synchronized drone operations.",
