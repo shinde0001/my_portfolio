@@ -178,8 +178,6 @@ export const PROJECTS: Project[] = [
       "Swarm coordination via PX4/MAVSDK",
       "Autonomous takeoff-to-landing pipeline",
     ],
-    impact: "Reduced mission planning time significantly",
-    // previewVideo: "/projects/drone-demo.mp4", // Uncomment and add your video to public/projects folder
     tech: ["Python", "ROS 2", "PX4", "MAVSDK", "LLM APIs", "Llama"],
     github: "https://github.com/shinde0001/Drone-Mission-Pipeline",
     video: "https://drive.google.com/file/d/1RmZlvP2GteiClFOZbtAo6owTs2M_YEa2/view",
