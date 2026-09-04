@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ScrollCar } from "@/components/scroll-car";
 import "./globals.css";
 
 const inter = Inter({
@@ -80,9 +81,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
+          <ScrollCar />
           {children}
         </ThemeProvider>
       </body>
     </html>
   );
 }
+
