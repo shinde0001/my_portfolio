@@ -69,7 +69,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
       <div className="grid-bg pointer-events-none absolute inset-0 opacity-20" />
-      
+
       {/* Decorative lines */}
       <div className="pointer-events-none absolute left-0 top-1/4 h-px w-1/3 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       <div className="pointer-events-none absolute right-0 bottom-1/4 h-px w-1/3 bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
@@ -95,7 +95,7 @@ export function ContactSection() {
                 { icon: Phone, label: "Phone", value: SITE_CONFIG.phone, href: `tel:${SITE_CONFIG.phone.replace(/\s/g, "")}` },
                 { icon: MapPin, label: "Location", value: "Karnataka, India" },
               ].map(({ icon: Icon, label, value, href }) => (
-                <motion.div 
+                <motion.div
                   key={label}
                   whileHover={{ x: 4 }}
                   className="group flex items-center gap-5"
@@ -197,9 +197,8 @@ export function ContactSection() {
                   value={form.message}
                   onChange={(e) => handleChange("message", e.target.value)}
                   placeholder="Tell me about your project..."
-                  className={`w-full resize-none rounded-2xl border bg-secondary/30 px-5 py-3.5 text-sm transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-primary/15 ${
-                    errors.message ? "border-destructive focus:ring-destructive/15" : "border-border/50"
-                  }`}
+                  className={`w-full resize-none rounded-2xl border bg-secondary/30 px-5 py-3.5 text-sm transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-primary/15 ${errors.message ? "border-destructive focus:ring-destructive/15" : "border-border/50"
+                    }`}
                 />
               </div>
 
@@ -271,9 +270,8 @@ function InputField({ id, label, type = "text", value, error, onChange, placehol
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={`w-full rounded-2xl border bg-secondary/30 px-5 py-3.5 text-sm transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-primary/15 ${
-          error ? "border-destructive focus:ring-destructive/15" : "border-border/50"
-        }`}
+        className={`w-full rounded-2xl border bg-secondary/30 px-5 py-3.5 text-sm transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-primary/15 ${error ? "border-destructive focus:ring-destructive/15" : "border-border/50"
+          }`}
       />
     </div>
   );

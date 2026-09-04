@@ -18,6 +18,7 @@ export function ScrollCar() {
   const yOffset = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   // Fix hydration issues by only rendering after mount
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 

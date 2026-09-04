@@ -13,32 +13,22 @@ import {
 
 /* ───── Reusable animation variants ───── */
 
-export const fadeUp: Variants = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
 };
 
-export const fadeIn: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
-
-export const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1 },
-};
-
-export const slideFromLeft: Variants = {
+const slideFromLeft: Variants = {
   hidden: { opacity: 0, x: -40 },
   visible: { opacity: 1, x: 0 },
 };
 
-export const slideFromRight: Variants = {
+const slideFromRight: Variants = {
   hidden: { opacity: 0, x: 40 },
   visible: { opacity: 1, x: 0 },
 };
 
-export const staggerContainer: Variants = {
+const staggerContainer: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -145,28 +135,6 @@ export function StaggerItem({ children, className }: StaggerItemProps) {
 
 /* ───── New Phase 5 Components ───── */
 
-export function ParallaxSection({
-  children,
-  className,
-  offset = 50,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  offset?: number;
-}) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [-offset, offset]);
-
-  return (
-    <motion.div ref={ref} style={{ y }} className={className}>
-      {children}
-    </motion.div>
-  );
-}
 
 interface TextRevealProps {
   text: string;
