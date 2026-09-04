@@ -88,19 +88,40 @@ function SkillCard({ category, index }: { category: typeof SKILL_CATEGORIES[0]; 
                       }}
                       className="absolute top-1/2 left-1/2 pointer-events-none text-primary z-50 origin-bottom-right"
                     >
-                      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_8px_rgba(var(--primary),0.5)]">
-                        {/* Arm links */}
-                        <path d="M22 2L15 9" />
-                        <path d="M15 9L11 13" />
-                        {/* Joints */}
-                        <circle cx="15" cy="9" r="1.5" fill="currentColor" />
-                        <circle cx="22" cy="2" r="1.5" fill="currentColor" />
-                        {/* Claw */}
-                        <path d="M11 13L8 12" />
-                        <path d="M11 13L12 16" />
-                        <path d="M8 12L7 14" />
-                        <path d="M12 16L10 17" />
-                        <circle cx="11" cy="13" r="1" fill="currentColor" />
+                      <svg width="80" height="80" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_12px_rgba(var(--primary),0.4)]">
+                        {/* Base Platform */}
+                        <rect x="44" y="2" width="18" height="6" rx="2" fill="currentColor" fillOpacity="0.15" />
+                        <rect x="48" y="0" width="10" height="2" rx="1" fill="currentColor" fillOpacity="0.3" />
+                        {/* Base Joint (Turret) */}
+                        <circle cx="53" cy="8" r="4" fill="currentColor" fillOpacity="0.2" />
+                        <circle cx="53" cy="8" r="2" fill="currentColor" fillOpacity="0.5" />
+                        {/* Upper Arm */}
+                        <path d="M53 8L40 22" strokeWidth="2.5" />
+                        <path d="M51 9L38 23" strokeWidth="0.6" strokeDasharray="1 2" opacity="0.4" />
+                        {/* Elbow Joint */}
+                        <circle cx="40" cy="22" r="3" fill="currentColor" fillOpacity="0.2" />
+                        <circle cx="40" cy="22" r="1.5" fill="currentColor" fillOpacity="0.6" />
+                        {/* Forearm */}
+                        <path d="M40 22L24 35" strokeWidth="2" />
+                        <path d="M38 23L22 36" strokeWidth="0.6" strokeDasharray="1 2" opacity="0.4" />
+                        {/* Hydraulic Piston Detail */}
+                        <path d="M50 12L42 26" strokeWidth="0.8" opacity="0.3" />
+                        {/* Wrist Joint */}
+                        <circle cx="24" cy="35" r="2.5" fill="currentColor" fillOpacity="0.2" />
+                        <circle cx="24" cy="35" r="1.2" fill="currentColor" fillOpacity="0.6" />
+                        {/* Gripper Mount */}
+                        <path d="M24 35L20 40" strokeWidth="1.5" />
+                        {/* Gripper Fingers */}
+                        <path d="M20 40L15 42L14 46" strokeWidth="1.2" />
+                        <path d="M20 40L22 44L20 48" strokeWidth="1.2" />
+                        <path d="M14 46L15 48" strokeWidth="1" />
+                        <path d="M20 48L19 50" strokeWidth="1" />
+                        {/* Gripper Joint Bolts */}
+                        <circle cx="20" cy="40" r="1" fill="currentColor" fillOpacity="0.5" />
+                        <circle cx="15" cy="42" r="0.7" fill="currentColor" fillOpacity="0.4" />
+                        <circle cx="22" cy="44" r="0.7" fill="currentColor" fillOpacity="0.4" />
+                        {/* Wiring Detail */}
+                        <path d="M53 5C56 5 58 8 58 12C58 18 48 20 44 28" strokeWidth="0.5" opacity="0.25" fill="none" />
                       </svg>
                     </motion.div>
                   )}

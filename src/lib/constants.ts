@@ -4,9 +4,10 @@ import {
   Eye,
   Brain,
   Wrench,
-  PenTool,
   GitBranch,
   Globe,
+  Gauge,
+  Monitor,
   type LucideIcon,
 } from "lucide-react";
 
@@ -36,8 +37,8 @@ export const NAV_LINKS = [
 /* ───── About / Profile ───── */
 export const ABOUT_TEXT = [
   "Robotics and Automation Engineer specializing in building intelligent autonomous systems — from AGVs navigating warehouse floors to humanoid robots learning to walk. I bring together ROS 2, SLAM, AI-driven perception, and real-time control to solve real-world mobility challenges.",
-  "At Savira Systek, I deployed production AGV fleets integrated with Warehouse Management Systems, optimizing goods movement and reducing human intervention across live industrial environments. My work spans the full stack: sensor fusion with LiDAR and cameras, path planning, sim-to-real transfer pipelines, and swarm drone coordination.",
-  "Beyond industry, I build open-source projects that push boundaries — training humanoid robots with reinforcement learning in MuJoCo, engineering AI-powered stock intelligence systems, and developing RAG-based chatbots. I'm driven by a simple belief: robots should work alongside humans, not replace them.",
+  "I deployed production AGV fleets integrated with Warehouse Management Systems, optimizing goods movement and reducing human intervention across live industrial environments. My work spans the full stack: sensor fusion with LiDAR and cameras, path planning, sim-to-real transfer pipelines.",
+  "Beyond industry, I build open-source projects that push boundaries — training humanoid robots with reinforcement learning in MuJoCo, engineering AI-powered stock intelligence systems, and developing RAG-based chatbots, and swarm drone coordination. I'm driven by a simple belief: robots should work alongside humans, not replace them.",
 ] as const;
 
 /* ───── Skills ───── */
@@ -52,55 +53,43 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Programming",
     icon: Cpu,
-    skills: ["Python", "C", "C++", "R", "Bash"],
+    skills: ["C++", "Python", "C", "Data Structures & Algorithms", "Multithreading"],
     colorClass: "bg-blue-500/10 text-blue-500",
   },
   {
-    title: "Robotics & Autonomous Systems",
+    title: "Robotics",
     icon: Bot,
-    skills: ["ROS 2", "Gazebo", "RViz2", "SLAM", "Autonomous Navigation", "Path Planning"],
+    skills: ["ROS 2", "Robot Kinematics & Dynamics", "Motion Planning", "Path Planning", "SLAM", "Localization", "Sensor Fusion", "Navigation", "Manipulation"],
     colorClass: "bg-cyan-500/10 text-cyan-500",
   },
   {
-    title: "Drone Technologies",
-    icon: Globe,
-    skills: ["PX4 Autopilot", "ArduPilot", "MAVLink", "MAVSDK", "Swarm Coordination"],
+    title: "Control Systems",
+    icon: Gauge,
+    skills: ["PID Control", "State Estimation", "Trajectory Optimization", "Model Predictive Control (MPC)", "Real-Time Control"],
     colorClass: "bg-amber-500/10 text-amber-500",
   },
   {
-    title: "Computer Vision",
+    title: "AI & Perception",
     icon: Eye,
-    skills: ["OpenCV", "MVS SDK", "YOLOv8"],
+    skills: ["Computer Vision", "OpenCV", "3D Perception", "Object Detection", "Deep Learning", "PyTorch", "Machine Learning"],
     colorClass: "bg-purple-500/10 text-purple-500",
   },
   {
-    title: "AI & ML",
-    icon: Brain,
-    skills: ["Reinforcement Learning", "Deep Learning", "TensorFlow", "Keras", "PyTorch"],
-    colorClass: "bg-rose-500/10 text-rose-500",
-  },
-  {
-    title: "Embedded Systems",
-    icon: Cpu,
-    skills: ["Arduino", "Raspberry Pi", "SRC 2000", "Flight Controllers"],
+    title: "Embedded & Hardware",
+    icon: Wrench,
+    skills: ["Embedded C/C++", "STM32", "Microcontrollers", "Motor Control", "CAN", "UART", "SPI", "I²C", "Ethernet", "IMU", "LiDAR", "RGB/Depth Cameras", "Encoders"],
     colorClass: "bg-emerald-500/10 text-emerald-500",
   },
   {
-    title: "Industrial Automation",
-    icon: Wrench,
-    skills: ["PLC Fundamentals", "Robotics Sensors", "Actuators", "Industrial Protocols"],
-    colorClass: "bg-orange-500/10 text-orange-500",
+    title: "Simulation & Deployment",
+    icon: Monitor,
+    skills: ["Gazebo", "MuJoCo", "MATLAB/Simulink", "NVIDIA Jetson", "CUDA"],
+    colorClass: "bg-rose-500/10 text-rose-500",
   },
   {
-    title: "CAD & Design",
-    icon: PenTool,
-    skills: ["SolidWorks", "AutoCAD"],
-    colorClass: "bg-indigo-500/10 text-indigo-500",
-  },
-  {
-    title: "Dev & Collaboration",
+    title: "Development Tools",
     icon: GitBranch,
-    skills: ["GitHub", "VS Code", "Google Colab", "RoboShopPro", "RDS", "WMS"],
+    skills: ["Linux", "Git", "GitHub", "Docker", "CMake", "CI/CD"],
     colorClass: "bg-teal-500/10 text-teal-500",
   },
 ];

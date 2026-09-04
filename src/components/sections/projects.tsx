@@ -54,22 +54,54 @@ export function ProjectsSection() {
           animate={{ rotate: [-3, 3, -3] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-24 h-24 md:w-[120px] md:h-[120px]">
-            {/* Quadcopter Body */}
-            <rect x="9" y="10" width="6" height="4" rx="1" fill="currentColor" fillOpacity="0.2" />
-            {/* Arms */}
-            <path d="M9 10L5 6" />
-            <path d="M15 10L19 6" />
-            <path d="M9 14L5 18" />
-            <path d="M15 14L19 18" />
-            {/* Propellers */}
-            <circle cx="5" cy="6" r="3" strokeDasharray="2 2" className="animate-spin" style={{ transformOrigin: '5px 6px' }} />
-            <circle cx="19" cy="6" r="3" strokeDasharray="2 2" className="animate-spin" style={{ transformOrigin: '19px 6px' }} />
-            <circle cx="5" cy="18" r="3" strokeDasharray="2 2" className="animate-spin" style={{ transformOrigin: '5px 18px' }} />
-            <circle cx="19" cy="18" r="3" strokeDasharray="2 2" className="animate-spin" style={{ transformOrigin: '19px 18px' }} />
-            {/* Camera Payload */}
-            <path d="M12 14v2" />
-            <circle cx="12" cy="17" r="1.5" />
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" className="w-28 h-28 md:w-[140px] md:h-[140px]">
+            {/* Central Body Frame */}
+            <rect x="32" y="34" width="16" height="12" rx="3" fill="currentColor" fillOpacity="0.15" />
+            <rect x="35" y="36" width="10" height="8" rx="2" fill="currentColor" fillOpacity="0.08" />
+
+            {/* Diagonal Arms */}
+            <path d="M34 36L18 20" strokeWidth="1.5" />
+            <path d="M46 36L62 20" strokeWidth="1.5" />
+            <path d="M34 44L18 60" strokeWidth="1.5" />
+            <path d="M46 44L62 60" strokeWidth="1.5" />
+
+            {/* Motor Housings */}
+            <rect x="14" y="16" width="8" height="4" rx="2" fill="currentColor" fillOpacity="0.2" />
+            <rect x="58" y="16" width="8" height="4" rx="2" fill="currentColor" fillOpacity="0.2" />
+            <rect x="14" y="58" width="8" height="4" rx="2" fill="currentColor" fillOpacity="0.2" />
+            <rect x="58" y="58" width="8" height="4" rx="2" fill="currentColor" fillOpacity="0.2" />
+
+            {/* Propellers (spinning) */}
+            <ellipse cx="18" cy="16" rx="10" ry="2" strokeDasharray="3 2" className="animate-spin" style={{ transformOrigin: '18px 16px' }} />
+            <ellipse cx="62" cy="16" rx="10" ry="2" strokeDasharray="3 2" className="animate-spin" style={{ transformOrigin: '62px 16px' }} />
+            <ellipse cx="18" cy="62" rx="10" ry="2" strokeDasharray="3 2" className="animate-spin" style={{ transformOrigin: '18px 62px' }} />
+            <ellipse cx="62" cy="62" rx="10" ry="2" strokeDasharray="3 2" className="animate-spin" style={{ transformOrigin: '62px 62px' }} />
+
+            {/* Motor Center Dots */}
+            <circle cx="18" cy="18" r="1.5" fill="currentColor" fillOpacity="0.5" />
+            <circle cx="62" cy="18" r="1.5" fill="currentColor" fillOpacity="0.5" />
+            <circle cx="18" cy="60" r="1.5" fill="currentColor" fillOpacity="0.5" />
+            <circle cx="62" cy="60" r="1.5" fill="currentColor" fillOpacity="0.5" />
+
+            {/* Landing Gear */}
+            <path d="M34 46L30 52L28 52" strokeWidth="0.8" />
+            <path d="M46 46L50 52L52 52" strokeWidth="0.8" />
+            <path d="M28 52L28 54" strokeWidth="0.6" />
+            <path d="M52 52L52 54" strokeWidth="0.6" />
+
+            {/* Camera Gimbal */}
+            <path d="M40 46L40 50" strokeWidth="0.8" />
+            <rect x="37" y="50" width="6" height="4" rx="1.5" fill="currentColor" fillOpacity="0.2" />
+            <circle cx="40" cy="52" r="1.2" fill="currentColor" fillOpacity="0.4" />
+
+            {/* GPS Antenna */}
+            <path d="M40 34L40 30" strokeWidth="0.6" />
+            <circle cx="40" cy="29" r="1.5" fill="currentColor" fillOpacity="0.15" />
+            <circle cx="40" cy="29" r="0.6" fill="currentColor" fillOpacity="0.4" />
+
+            {/* LED Indicators */}
+            <circle cx="34" cy="37" r="0.6" fill="currentColor" fillOpacity="0.6" />
+            <circle cx="46" cy="37" r="0.6" fill="currentColor" fillOpacity="0.6" />
           </svg>
         </motion.div>
       </motion.div>
