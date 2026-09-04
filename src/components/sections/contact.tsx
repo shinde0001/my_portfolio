@@ -53,8 +53,10 @@ export function ContactSection() {
 
     window.open(mailtoUrl, "_blank");
     setStatus("success");
-    setForm(INITIAL_FORM);
-    setTimeout(() => setStatus("idle"), 4000);
+    setTimeout(() => {
+      setStatus("idle");
+      setForm(INITIAL_FORM);
+    }, 2500);
   }
 
   function handleChange(field: keyof FormData, value: string) {
@@ -221,7 +223,7 @@ export function ContactSection() {
                     )}
                     {status === "success" && (
                       <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
-                        <CheckCircle2 className="h-5 w-5" /> Message Sent!
+                        <CheckCircle2 className="h-5 w-5" /> Opening Mail Client...
                       </motion.div>
                     )}
                     {status === "error" && (

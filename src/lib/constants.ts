@@ -35,8 +35,9 @@ export const NAV_LINKS = [
 
 /* ───── About / Profile ───── */
 export const ABOUT_TEXT = [
-  "Robotics and Automation Engineer with hands-on experience in Autonomous Guided Vehicles (AGVs), ROS 2, SLAM, AI-driven perception, and warehouse automation.",
-  "Experienced in sensor integration, autonomous navigation, robot deployment, and WMS integration. Passionate about developing intelligent robotic and drone systems using computer vision, machine learning, and autonomous navigation technologies.",
+  "Robotics and Automation Engineer specializing in building intelligent autonomous systems — from AGVs navigating warehouse floors to humanoid robots learning to walk. I bring together ROS 2, SLAM, AI-driven perception, and real-time control to solve real-world mobility challenges.",
+  "At Savira Systek, I deployed production AGV fleets integrated with Warehouse Management Systems, optimizing goods movement and reducing human intervention across live industrial environments. My work spans the full stack: sensor fusion with LiDAR and cameras, path planning, sim-to-real transfer pipelines, and swarm drone coordination.",
+  "Beyond industry, I build open-source projects that push boundaries — training humanoid robots with reinforcement learning in MuJoCo, engineering AI-powered stock intelligence systems, and developing RAG-based chatbots. I'm driven by a simple belief: robots should work alongside humans, not replace them.",
 ] as const;
 
 /* ───── Skills ───── */
@@ -115,7 +116,7 @@ export interface Experience {
 export const EXPERIENCES: Experience[] = [
   {
     role: "Robotics Engineer",
-    company: "Savira Systek",
+    company: "Savira Systek, pune",
     period: "Aug 2025 – Jun 2026",
     bullets: [
       "Specialized in AGV systems with a focus on SLAM for autonomous navigation and mapping.",
@@ -141,10 +142,14 @@ export const EXPERIENCES: Experience[] = [
 export interface Project {
   title: string;
   description: string;
+  highlights?: string[]; // 3-4 bullet points of key achievements
+  impact?: string; // Quantitative impact
+  previewImage?: string; // Path to screenshot in /public
+  previewVideo?: string; // Path to video in /public for inline embed
   tech: string[];
   github?: string;
-  video?: string;
-  video2?: string;
+  video?: string; // External link
+  video2?: string; // External link
 }
 
 export const PROJECTS: Project[] = [
@@ -152,20 +157,40 @@ export const PROJECTS: Project[] = [
     title: "Humanoid-Robot-Training",
     description:
       "Developed a professional-grade, deterministically engineered software stack to control a 19-DOF bipedal humanoid robot. Features a Pure Python Hardware Abstraction Layer (HAL) built around MuJoCo for seamless sim-to-real transfer.",
+    highlights: [
+      "Custom Pure Python HAL around MuJoCo",
+      "Seamless sim-to-real transfer pipeline",
+      "Real-time 19-DOF bipedal control",
+    ],
+    previewImage: "/projects/humanoid.png",
     tech: ["Python", "MuJoCo", "FastAPI", "OpenCV"],
     github: "https://github.com/shinde0001/Humanoid-Robot-Training",
   },
   {
-    title: "Detection Quality Adapter (DQA)",
+    title: "AI Chatbot using RAG",
     description:
-      "Engineered a high-performance, real-time post-processing middleware pipeline to sanitize and refine raw object detection results. Applies geometric, association, and temporal filtering to ensure stable tracking.",
-    tech: ["Python", "Computer Vision", "Real-Time Processing"],
-    github: "https://github.com/shinde0001/Detection-Quality-Adapter-DQA-",
+      "Built an AI chatbot capable of retrieving domain-specific information using Retrieval-Augmented Generation with LLM-based responses and document retrieval.",
+    highlights: [
+      "Domain-specific information retrieval",
+      "RAG pipeline integration",
+      "Vector database for semantic search",
+    ],
+    previewImage: "/projects/chatbot.png",
+    tech: ["Python", "LangChain", "Vector Database"],
+    github: "https://github.com/shinde0001/Parth.AI-RAG-System",
   },
+
   {
     title: "Drone Pipeline & Multi-Agent Mission Generation",
     description:
       "Developed a multi-drone mission planning system for autonomous task execution with swarm coordination strategies for synchronized drone operations.",
+    highlights: [
+      "LLM-powered natural language mission generation",
+      "Swarm coordination via PX4/MAVSDK",
+      "Autonomous takeoff-to-landing pipeline",
+    ],
+    impact: "Reduced mission planning time significantly",
+    // previewVideo: "/projects/drone-demo.mp4", // Uncomment and add your video to public/projects folder
     tech: ["Python", "ROS 2", "PX4", "MAVSDK", "LLM APIs", "Llama"],
     github: "https://github.com/shinde0001/Drone-Mission-Pipeline",
     video: "https://drive.google.com/file/d/1RmZlvP2GteiClFOZbtAo6owTs2M_YEa2/view",
@@ -175,21 +200,26 @@ export const PROJECTS: Project[] = [
     title: "Autonomous Vision-Based Drone Follower",
     description:
       "Developed an autonomous drone capable of following a target using computer vision with integrated SLAM for real-time localization and autonomous navigation.",
+    highlights: [
+      "Integrated SLAM for real-time localization",
+      "Autonomous navigation and target following",
+      "YOLOv8-based computer vision tracking",
+    ],
     tech: ["OpenCV", "Python", "ROS 2", "PX4", "YOLOv8"],
     github: "https://github.com/shinde0001/vision-drone-for-object-detect-and-follow-SLAM-Navigation-",
     video: "https://drive.google.com/file/d/1nrlSeXwTdMn7kNZ85Q1zW7FpX3Wxdg_t/view",
   },
-  {
-    title: "AI Chatbot using RAG",
-    description:
-      "Built an AI chatbot capable of retrieving domain-specific information using Retrieval-Augmented Generation with LLM-based responses and document retrieval.",
-    tech: ["Python", "LangChain", "Vector Database"],
-    github: "https://github.com/shinde0001/Parth.AI-RAG-System",
-  },
+
   {
     title: "📈 AI Stock Signal Intelligence System — Indian Markets (NSE)",
     description:
       "Developed a local-first AI stock prediction and intelligence system for Indian markets. Features include an Investment Advisor, Portfolio Simulator, and real-time market prediction architecture.",
+    highlights: [
+      "Local-first AI prediction architecture",
+      "Real-time NSE market intelligence",
+      "Portfolio Simulator & Investment Advisor",
+    ],
+    previewImage: "/projects/stock-ai.png",
     tech: ["Python", "Machine Learning", "Streamlit", "Data Analysis"],
     github: "https://github.com/shinde0001/AI-Stock-Signal-Intelligence-Machine-learning-model",
   },
@@ -197,13 +227,36 @@ export const PROJECTS: Project[] = [
     title: "AI-Powered Website Security",
     description:
       "Engineered an enterprise-grade reconnaissance engine and security dashboard. Features deep entity investigation, OSINT capabilities, and visual knowledge graphs for digital footprint assessment.",
+    highlights: [
+      "Enterprise-grade reconnaissance engine",
+      "Automated OSINT capabilities",
+      "Visual knowledge graphs for threat assessment",
+    ],
+    previewImage: "/projects/security.png",
     tech: ["Python", "Cybersecurity", "OSINT", "AI"],
     github: "https://github.com/shinde0001/AI-Powered-Website-Security",
+  },
+  {
+    title: "Detection Quality Adapter (DQA)",
+    description:
+      "Engineered a high-performance, real-time post-processing middleware pipeline to sanitize and refine raw object detection results. Applies geometric, association, and temporal filtering to ensure stable tracking.",
+    highlights: [
+      "Real-time post-processing middleware",
+      "Geometric, association, and temporal filtering",
+      "Ensures highly stable tracking under dynamic conditions",
+    ],
+    tech: ["Python", "Computer Vision", "Real-Time Processing"],
+    github: "https://github.com/shinde0001/Detection-Quality-Adapter-DQA-",
   },
   {
     title: "Slotting Machine with Robotic Arm controlled by Raspberry Pi",
     description:
       "Designed and developed a robotic arm-based slotting machine controlled by Raspberry Pi, automating pick-and-place operations using embedded programming.",
+    highlights: [
+      "Custom robotic arm design",
+      "Raspberry Pi embedded control",
+      "Automated pick-and-place operations",
+    ],
     tech: ["Raspberry Pi", "Python", "Embedded Systems"],
   },
 ];

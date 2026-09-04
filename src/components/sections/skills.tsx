@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { useState } from "react";
+import { motion, useMotionTemplate, useMotionValue, AnimatePresence } from "framer-motion";
 import { SectionHeading } from "@/components/section-heading";
 import { StaggeredContainer, StaggerItem, CountUp } from "@/components/motion";
 import { SKILL_CATEGORIES } from "@/lib/constants";
@@ -8,6 +9,13 @@ import { SKILL_CATEGORIES } from "@/lib/constants";
 function SkillCard({ category, index }: { category: typeof SKILL_CATEGORIES[0]; index: number }) {
   const Icon = category.icon;
   const isLarge = index === 0 || index === 1;
+  const [grabbedSkill, setGrabbedSkill] = useState<string | null>(null);
+
+  const handleSkillClick = (skill: string) => {
+    if (grabbedSkill) return;
+    setGrabbedSkill(skill);
+    setTimeout(() => setGrabbedSkill(null), 1500);
+  };
 
   // 3D Tilt Effect
   const mouseX = useMotionValue(0);
@@ -52,12 +60,51 @@ function SkillCard({ category, index }: { category: typeof SKILL_CATEGORIES[0]; 
             </div>
           </div>
           
-          <StaggeredContainer className="flex flex-wrap gap-2 pt-2">
+          <StaggeredContainer className="flex flex-wrap gap-2 pt-2 relative">
             {category.skills.map((skill) => (
-              <StaggerItem key={skill}>
-                <span className="inline-block rounded-lg bg-secondary/80 px-2.5 py-1 text-xs font-medium text-secondary-foreground transition-colors hover:bg-primary/20 hover:text-primary cursor-default border border-transparent hover:border-primary/20">
+              <StaggerItem key={skill} className="relative">
+                <span 
+                  onClick={() => handleSkillClick(skill)}
+                  className={`inline-block rounded-lg px-2.5 py-1 text-xs font-medium transition-colors cursor-pointer border relative z-10 ${
+                    grabbedSkill === skill 
+                      ? "bg-primary text-primary-foreground border-primary scale-110 shadow-lg shadow-primary/20" 
+                      : "bg-secondary/80 text-secondary-foreground border-transparent hover:bg-primary/20 hover:text-primary hover:border-primary/20"
+                  }`}
+                >
                   {skill}
                 </span>
+
+                {/* Robotic Arm Animation */}
+                <AnimatePresence>
+                  {grabbedSkill === skill && (
+                    <motion.div
+                      initial={{ x: 100, y: -50, opacity: 0, scale: 0.5, rotate: -45 }}
+                      animate={{ x: 0, y: -10, opacity: 1, scale: 1, rotate: 0 }}
+                      exit={{ x: 150, y: -50, opacity: 0, scale: 0.5, rotate: -45 }}
+                      transition={{ 
+                        duration: 0.6, 
+                        type: "spring", 
+                        bounce: 0.4,
+                      }}
+                      className="absolute top-1/2 left-1/2 pointer-events-none text-primary z-50 origin-bottom-right"
+                    >
+                      <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_8px_rgba(var(--primary),0.5)]">
+                        {/* Arm links */}
+                        <path d="M22 2L15 9" />
+                        <path d="M15 9L11 13" />
+                        {/* Joints */}
+                        <circle cx="15" cy="9" r="1.5" fill="currentColor" />
+                        <circle cx="22" cy="2" r="1.5" fill="currentColor" />
+                        {/* Claw */}
+                        <path d="M11 13L8 12" />
+                        <path d="M11 13L12 16" />
+                        <path d="M8 12L7 14" />
+                        <path d="M12 16L10 17" />
+                        <circle cx="11" cy="13" r="1" fill="currentColor" />
+                      </svg>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </StaggerItem>
             ))}
           </StaggeredContainer>

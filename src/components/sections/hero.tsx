@@ -6,6 +6,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
 import { TextReveal, MagneticButton } from "@/components/motion";
+import { RobotAnimation } from "@/components/robot-animation";
 
 export function HeroSection() {
   return (
@@ -16,13 +17,16 @@ export function HeroSection() {
       {/* Animated mesh gradient and grid */}
       <div className="pointer-events-none absolute inset-0 mesh-gradient" />
       <div className="pointer-events-none absolute inset-0 grid-bg" />
+      
+      {/* Humanoid Robot Background Animation */}
+      <RobotAnimation />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6">
         {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
@@ -38,14 +42,14 @@ export function HeroSection() {
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
           >
             Hi, I&apos;m{" "}
           </motion.span>
           <TextReveal
             text={SITE_CONFIG.name}
             className="gradient-text"
-            delay={0.4}
+            delay={0.2}
           />
         </h1>
 
@@ -53,13 +57,13 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-8 flex justify-center"
         >
           <motion.div
             initial={{ maxWidth: 0 }}
             animate={{ maxWidth: "100%" }}
-            transition={{ duration: 1.2, delay: 1.0, ease: "easeInOut" }}
+            transition={{ duration: 1.2, delay: 0.5, ease: "easeInOut" }}
             className="overflow-hidden whitespace-nowrap"
           >
             <p className="text-lg font-medium text-primary sm:text-xl px-2">
@@ -72,7 +76,7 @@ export function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
           className="mx-auto mt-12 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
         >
           {SITE_CONFIG.tagline}
@@ -82,7 +86,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
           className="mt-12 flex flex-wrap items-center justify-center gap-4"
         >
           <motion.div whileHover={{ scale: 1.03 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
@@ -104,7 +108,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.6 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-12 flex items-center justify-center gap-4"
         >
           {[
@@ -139,7 +143,7 @@ export function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.0 }}
+        transition={{ delay: 1.0 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div

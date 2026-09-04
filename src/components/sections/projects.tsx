@@ -24,8 +24,55 @@ const getGradient = (title: string) => {
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="relative py-16 md:py-20">
+    <section id="projects" className="relative py-16 md:py-20 overflow-hidden">
       <div className="dot-pattern pointer-events-none absolute inset-0 opacity-40" />
+      
+      {/* Animated Background Drone - Bouncing DVD Screensaver Effect */}
+      <motion.div
+        className="pointer-events-none absolute z-0 opacity-10 text-primary"
+        animate={{
+          x: ["0vw", "calc(100vw - 120px)"],
+          y: ["0%", "calc(100% - 120px)"],
+        }}
+        transition={{
+          x: {
+            duration: 22,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "linear",
+          },
+          y: {
+            duration: 15,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "linear",
+          },
+        }}
+        style={{ left: 0, top: 0 }}
+      >
+        <motion.div
+          animate={{ rotate: [-3, 3, -3] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-24 h-24 md:w-[120px] md:h-[120px]">
+            {/* Quadcopter Body */}
+            <rect x="9" y="10" width="6" height="4" rx="1" fill="currentColor" fillOpacity="0.2" />
+            {/* Arms */}
+            <path d="M9 10L5 6" />
+            <path d="M15 10L19 6" />
+            <path d="M9 14L5 18" />
+            <path d="M15 14L19 18" />
+            {/* Propellers */}
+            <circle cx="5" cy="6" r="3" strokeDasharray="2 2" className="animate-spin" style={{ transformOrigin: '5px 6px' }} />
+            <circle cx="19" cy="6" r="3" strokeDasharray="2 2" className="animate-spin" style={{ transformOrigin: '19px 6px' }} />
+            <circle cx="5" cy="18" r="3" strokeDasharray="2 2" className="animate-spin" style={{ transformOrigin: '5px 18px' }} />
+            <circle cx="19" cy="18" r="3" strokeDasharray="2 2" className="animate-spin" style={{ transformOrigin: '19px 18px' }} />
+            {/* Camera Payload */}
+            <path d="M12 14v2" />
+            <circle cx="12" cy="17" r="1.5" />
+          </svg>
+        </motion.div>
+      </motion.div>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -46,11 +93,35 @@ export function ProjectsSection() {
                     isFeatured ? "gradient-border" : "border border-border/50 hover:border-primary/30"
                   }`}
                 >
-                  {/* Image placeholder */}
-                  <div className={`w-full ${isFeatured ? "h-48 md:h-64" : "h-40"} bg-gradient-to-br ${getGradient(project.title)} relative overflow-hidden`}>
-                    {/* Decorative pattern inside placeholder */}
-                    <div className="absolute inset-0 grid-bg opacity-30" />
-                    <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-card to-transparent" />
+                  {/* Media (Video or Image) or Placeholder */}
+                  <div className={`w-full ${isFeatured ? "h-48 md:h-64" : "h-40"} bg-gradient-to-br ${getGradient(project.title)} relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500`}>
+                    {project.previewVideo ? (
+                      <>
+                        <video 
+                          src={project.previewVideo} 
+                          autoPlay 
+                          loop 
+                          muted 
+                          playsInline 
+                          className="absolute inset-0 h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                        />
+                        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+                      </>
+                    ) : project.previewImage ? (
+                      <>
+                        <img 
+                          src={project.previewImage} 
+                          alt={project.title}
+                          className="absolute inset-0 h-full w-full object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                        />
+                        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+                      </>
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 grid-bg opacity-30" />
+                        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-card to-transparent pointer-events-none" />
+                      </>
+                    )}
                   </div>
 
                   {/* Content */}
@@ -104,6 +175,23 @@ export function ProjectsSection() {
                     <p className={`mt-4 flex-1 leading-relaxed text-muted-foreground ${isFeatured ? "text-base" : "text-sm"}`}>
                       {project.description}
                     </p>
+
+                    {project.highlights && (
+                      <ul className={`mt-4 space-y-2 ${isFeatured ? "text-sm" : "text-xs"} text-muted-foreground`}>
+                        {project.highlights.map((highlight, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
+                            <span className="leading-snug">{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    
+                    {project.impact && (
+                      <div className={`mt-4 font-medium text-primary ${isFeatured ? "text-sm" : "text-xs"} bg-primary/5 p-3 rounded-lg border border-primary/10`}>
+                        🚀 {project.impact}
+                      </div>
+                    )}
 
                     {/* Tech stack */}
                     <div className="relative mt-6 overflow-hidden rounded-lg">
