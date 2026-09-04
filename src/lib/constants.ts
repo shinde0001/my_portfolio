@@ -44,6 +44,7 @@ export interface SkillCategory {
   title: string;
   icon: LucideIcon;
   skills: string[];
+  colorClass: string;
 }
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
@@ -51,46 +52,55 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Programming",
     icon: Cpu,
     skills: ["Python", "C", "C++", "R", "Bash"],
+    colorClass: "bg-blue-500/10 text-blue-500",
   },
   {
     title: "Robotics & Autonomous Systems",
     icon: Bot,
     skills: ["ROS 2", "Gazebo", "RViz2", "SLAM", "Autonomous Navigation", "Path Planning"],
+    colorClass: "bg-cyan-500/10 text-cyan-500",
   },
   {
     title: "Drone Technologies",
     icon: Globe,
     skills: ["PX4 Autopilot", "ArduPilot", "MAVLink", "MAVSDK", "Swarm Coordination"],
+    colorClass: "bg-amber-500/10 text-amber-500",
   },
   {
     title: "Computer Vision",
     icon: Eye,
     skills: ["OpenCV", "MVS SDK", "YOLOv8"],
+    colorClass: "bg-purple-500/10 text-purple-500",
   },
   {
     title: "AI & ML",
     icon: Brain,
     skills: ["Reinforcement Learning", "Deep Learning", "TensorFlow", "Keras", "PyTorch"],
+    colorClass: "bg-rose-500/10 text-rose-500",
   },
   {
     title: "Embedded Systems",
     icon: Cpu,
     skills: ["Arduino", "Raspberry Pi", "SRC 2000", "Flight Controllers"],
+    colorClass: "bg-emerald-500/10 text-emerald-500",
   },
   {
     title: "Industrial Automation",
     icon: Wrench,
     skills: ["PLC Fundamentals", "Robotics Sensors", "Actuators", "Industrial Protocols"],
+    colorClass: "bg-orange-500/10 text-orange-500",
   },
   {
     title: "CAD & Design",
     icon: PenTool,
     skills: ["SolidWorks", "AutoCAD"],
+    colorClass: "bg-indigo-500/10 text-indigo-500",
   },
   {
     title: "Dev & Collaboration",
     icon: GitBranch,
     skills: ["GitHub", "VS Code", "Google Colab", "RoboShopPro", "RDS", "WMS"],
+    colorClass: "bg-teal-500/10 text-teal-500",
   },
 ];
 
@@ -135,7 +145,6 @@ export interface Project {
   github?: string;
   video?: string;
   video2?: string;
-  image?: string;
 }
 
 export const PROJECTS: Project[] = [

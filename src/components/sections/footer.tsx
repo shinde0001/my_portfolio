@@ -3,13 +3,17 @@
 import { Heart, Mail, ArrowUp } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants";
+import { AnimatedSection } from "@/components/motion";
+import { motion } from "framer-motion";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-border/50 bg-card/30 backdrop-blur-sm">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="relative bg-card/30 backdrop-blur-sm">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      
+      <AnimatedSection className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
@@ -55,7 +59,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-all hover:border-primary/50 hover:text-primary"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-all hover:border-foreground/50 hover:text-foreground"
               >
                 <GithubIcon className="h-4 w-4" />
               </a>
@@ -64,14 +68,14 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-all hover:border-primary/50 hover:text-primary"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-all hover:border-[#0A66C2]/50 hover:text-[#0A66C2]"
               >
                 <LinkedinIcon className="h-4 w-4" />
               </a>
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
                 aria-label="Email"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-all hover:border-primary/50 hover:text-primary"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-all hover:border-accent/50 hover:text-accent"
               >
                 <Mail className="h-4 w-4" />
               </a>
@@ -88,15 +92,16 @@ export function Footer() {
           </p>
 
           {/* Back to top */}
-          <a
+          <motion.a
             href="#hero"
+            whileHover={{ y: -2 }}
             className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             Back to top
             <ArrowUp className="h-3 w-3" />
-          </a>
+          </motion.a>
         </div>
-      </div>
+      </AnimatedSection>
     </footer>
   );
 }

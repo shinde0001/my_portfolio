@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { AnimatedSection } from "@/components/motion";
 import { Button } from "@/components/ui/button";
 import { SITE_CONFIG } from "@/lib/constants";
+import { motion, AnimatePresence } from "framer-motion";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
@@ -64,8 +65,12 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="relative py-16 md:py-20">
-      <div className="dot-pattern pointer-events-none absolute inset-0 opacity-30" />
+    <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
+      <div className="grid-bg pointer-events-none absolute inset-0 opacity-20" />
+      
+      {/* Decorative lines */}
+      <div className="pointer-events-none absolute left-0 top-1/4 h-px w-1/3 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="pointer-events-none absolute right-0 bottom-1/4 h-px w-1/3 bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -76,68 +81,72 @@ export function ContactSection() {
 
         <div className="grid gap-12 lg:grid-cols-5">
           {/* Contact info */}
-          <AnimatedSection className="lg:col-span-2 space-y-6">
-            <p className="text-muted-foreground leading-relaxed">
+          <AnimatedSection className="lg:col-span-2 space-y-8" direction="left">
+            <p className="text-muted-foreground leading-relaxed text-lg">
               I&apos;m always excited to discuss new opportunities in robotics,
               autonomous systems, and AI. Feel free to get in touch.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               {[
                 { icon: Mail, label: "Email", value: SITE_CONFIG.email, href: `mailto:${SITE_CONFIG.email}` },
                 { icon: Phone, label: "Phone", value: SITE_CONFIG.phone, href: `tel:${SITE_CONFIG.phone.replace(/\s/g, "")}` },
                 { icon: MapPin, label: "Location", value: "Karnataka, India" },
               ].map(({ icon: Icon, label, value, href }) => (
-                <div key={label} className="flex items-center gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Icon className="h-4 w-4" />
+                <motion.div 
+                  key={label}
+                  whileHover={{ x: 4 }}
+                  className="group flex items-center gap-5"
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+                    <Icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                       {label}
                     </p>
                     {href ? (
-                      <a href={href} className="text-sm font-medium hover:text-primary transition-colors">
+                      <a href={href} className="text-sm font-semibold hover:text-primary transition-colors mt-0.5 inline-block">
                         {value}
                       </a>
                     ) : (
-                      <p className="text-sm font-medium">{value}</p>
+                      <p className="text-sm font-semibold mt-0.5">{value}</p>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Social */}
-            <div className="pt-4">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <div className="pt-6 border-t border-border/50">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 Find me on
               </p>
-              <div className="flex gap-3">
+              <div className="flex gap-4">
                 <a
                   href={SITE_CONFIG.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="group flex h-10 w-10 items-center justify-center rounded-full border border-border/50 bg-card/50 text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:text-primary hover:shadow-lg"
+                  className="group flex h-12 w-12 items-center justify-center rounded-full border border-border/50 bg-card/50 text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:text-primary hover:shadow-lg glow-border"
                 >
-                  <GithubIcon className="h-4 w-4 transition-transform group-hover:scale-110" />
+                  <GithubIcon className="h-5 w-5 transition-transform group-hover:scale-110" />
                 </a>
                 <a
                   href={SITE_CONFIG.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="group flex h-10 w-10 items-center justify-center rounded-full border border-border/50 bg-card/50 text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:text-primary hover:shadow-lg"
+                  className="group flex h-12 w-12 items-center justify-center rounded-full border border-border/50 bg-card/50 text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:text-primary hover:shadow-lg glow-border"
                 >
-                  <LinkedinIcon className="h-4 w-4 transition-transform group-hover:scale-110" />
+                  <LinkedinIcon className="h-5 w-5 transition-transform group-hover:scale-110" />
                 </a>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
                   aria-label="Email"
-                  className="group flex h-10 w-10 items-center justify-center rounded-full border border-border/50 bg-card/50 text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:text-primary hover:shadow-lg"
+                  className="group flex h-12 w-12 items-center justify-center rounded-full border border-border/50 bg-card/50 text-muted-foreground backdrop-blur-sm transition-all hover:border-primary/50 hover:text-primary hover:shadow-lg glow-border"
                 >
-                  <Mail className="h-4 w-4 transition-transform group-hover:scale-110" />
+                  <Mail className="h-5 w-5 transition-transform group-hover:scale-110" />
                 </a>
               </div>
             </div>
@@ -147,10 +156,10 @@ export function ContactSection() {
           <AnimatedSection delay={0.2} className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="glass-card space-y-5 rounded-2xl p-6 md:p-8"
+              className="glass-card space-y-6 rounded-3xl p-8 md:p-10"
               noValidate
             >
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div className="grid gap-6 sm:grid-cols-2">
                 <InputField
                   id="contact-name"
                   label="Name"
@@ -177,7 +186,7 @@ export function ContactSection() {
                 placeholder="What's this about?"
               />
               <div>
-                <label htmlFor="contact-message" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                <label htmlFor="contact-message" className="mb-2 block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Message {errors.message && <span className="normal-case text-destructive">— {errors.message}</span>}
                 </label>
                 <textarea
@@ -186,27 +195,48 @@ export function ContactSection() {
                   value={form.message}
                   onChange={(e) => handleChange("message", e.target.value)}
                   placeholder="Tell me about your project..."
-                  className={`w-full resize-none rounded-xl border bg-secondary/30 px-4 py-3 text-sm transition-colors placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
-                    errors.message ? "border-destructive" : "border-border/50"
+                  className={`w-full resize-none rounded-2xl border bg-secondary/30 px-5 py-3.5 text-sm transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-primary/15 ${
+                    errors.message ? "border-destructive focus:ring-destructive/15" : "border-border/50"
                   }`}
                 />
               </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                disabled={status === "sending"}
-                className="w-full gap-2 rounded-full"
+              <motion.div
+                whileHover={status === "idle" ? { scale: 1.02 } : {}}
+                whileTap={status === "idle" ? { scale: 0.98 } : {}}
+                animate={status === "success" ? { scale: [1, 1.05, 1] } : {}}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                {status === "sending" && <Loader2 className="h-4 w-4 animate-spin" />}
-                {status === "success" && <CheckCircle2 className="h-4 w-4" />}
-                {status === "error" && <AlertCircle className="h-4 w-4" />}
-                {status === "idle" && <Send className="h-4 w-4" />}
-                {status === "idle" && "Send Message"}
-                {status === "sending" && "Sending..."}
-                {status === "success" && "Message Sent!"}
-                {status === "error" && "Failed — Try Again"}
-              </Button>
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={status === "sending"}
+                  className="w-full gap-2 rounded-full glow-border py-6 text-base"
+                >
+                  <AnimatePresence mode="wait">
+                    {status === "sending" && (
+                      <motion.div key="sending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                        <Loader2 className="h-5 w-5 animate-spin" /> Sending...
+                      </motion.div>
+                    )}
+                    {status === "success" && (
+                      <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                        <CheckCircle2 className="h-5 w-5" /> Message Sent!
+                      </motion.div>
+                    )}
+                    {status === "error" && (
+                      <motion.div key="error" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                        <AlertCircle className="h-5 w-5" /> Failed — Try Again
+                      </motion.div>
+                    )}
+                    {status === "idle" && (
+                      <motion.div key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center gap-2">
+                        <Send className="h-5 w-5" /> Send Message
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </Button>
+              </motion.div>
             </form>
           </AnimatedSection>
         </div>
@@ -230,7 +260,7 @@ interface InputFieldProps {
 function InputField({ id, label, type = "text", value, error, onChange, placeholder }: InputFieldProps) {
   return (
     <div>
-      <label htmlFor={id} className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <label htmlFor={id} className="mb-2 block text-xs font-semibold uppercase tracking-widest text-muted-foreground">
         {label} {error && <span className="normal-case text-destructive">— {error}</span>}
       </label>
       <input
@@ -239,8 +269,8 @@ function InputField({ id, label, type = "text", value, error, onChange, placehol
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className={`w-full rounded-xl border bg-secondary/30 px-4 py-3 text-sm transition-colors placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
-          error ? "border-destructive" : "border-border/50"
+        className={`w-full rounded-2xl border bg-secondary/30 px-5 py-3.5 text-sm transition-all duration-300 placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-[3px] focus:ring-primary/15 ${
+          error ? "border-destructive focus:ring-destructive/15" : "border-border/50"
         }`}
       />
     </div>

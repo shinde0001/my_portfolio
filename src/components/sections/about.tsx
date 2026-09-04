@@ -2,7 +2,7 @@
 
 import { Bot, MapPin, Globe2 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
-import { AnimatedSection } from "@/components/motion";
+import { AnimatedSection, StaggeredContainer, StaggerItem } from "@/components/motion";
 import { ABOUT_TEXT, LANGUAGES } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
 
@@ -16,43 +16,53 @@ export function AboutSection() {
           description="A brief introduction to my background and passion."
         />
 
-        <div className="grid gap-12 lg:grid-cols-5">
+        <div className="grid gap-12 lg:grid-cols-12">
           {/* Main text */}
-          <AnimatedSection className="lg:col-span-3 space-y-6">
-            {ABOUT_TEXT.map((paragraph, i) => (
-              <p
-                key={i}
-                className="text-base leading-relaxed text-muted-foreground md:text-lg"
-              >
-                {paragraph}
-              </p>
-            ))}
+          <AnimatedSection className="lg:col-span-7 relative pl-6">
+            {/* Vertical accent line */}
+            <div className="absolute left-0 top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full" />
+            
+            <div className="space-y-6">
+              {ABOUT_TEXT.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className={`leading-relaxed text-muted-foreground ${
+                    i === 0 ? "text-lg md:text-xl font-medium text-foreground/90" : "text-base md:text-lg"
+                  }`}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </AnimatedSection>
 
           {/* Quick facts cards */}
-          <AnimatedSection delay={0.2} className="lg:col-span-2 space-y-4">
+          <AnimatedSection delay={0.2} className="lg:col-span-5 space-y-4">
             {[
               {
                 icon: Bot,
                 title: "Specialization",
                 value: "Robotics & Autonomous Systems",
+                colorClass: "bg-blue-500/10 text-blue-500",
               },
               {
                 icon: MapPin,
                 title: "Location",
                 value: "Karnataka, India",
+                colorClass: "bg-amber-500/10 text-amber-500",
               },
               {
                 icon: Globe2,
                 title: "Languages",
                 value: LANGUAGES.join(", "),
+                colorClass: "bg-emerald-500/10 text-emerald-500",
               },
-            ].map(({ icon: Icon, title, value }) => (
+            ].map(({ icon: Icon, title, value, colorClass }) => (
               <div
                 key={title}
-                className="glass-card flex items-start gap-4 rounded-xl p-4 transition-all hover:shadow-lg"
+                className="glass-card flex items-start gap-4 rounded-xl p-4 transition-all hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-[2px]"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${colorClass}`}>
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
@@ -64,22 +74,21 @@ export function AboutSection() {
               </div>
             ))}
 
-
-
             {/* Tech tags */}
-            <div className="flex flex-wrap gap-2 pt-2">
+            <StaggeredContainer className="flex flex-wrap gap-2 pt-4">
               {["AGV Systems", "SLAM", "Drone Swarms", "Computer Vision", "ROS 2"].map(
                 (tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="rounded-full px-3 py-1 text-xs"
-                  >
-                    {tag}
-                  </Badge>
+                  <StaggerItem key={tag}>
+                    <Badge
+                      variant="secondary"
+                      className="rounded-full px-3 py-1 text-xs transition-all hover:bg-primary/20 hover:text-primary cursor-default"
+                    >
+                      {tag}
+                    </Badge>
+                  </StaggerItem>
                 )
               )}
-            </div>
+            </StaggeredContainer>
           </AnimatedSection>
         </div>
       </div>
